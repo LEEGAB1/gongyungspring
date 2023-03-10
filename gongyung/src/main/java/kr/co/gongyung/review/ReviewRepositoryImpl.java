@@ -20,28 +20,32 @@ public class ReviewRepositoryImpl implements ReviewRepository{
 
 	@Override
 	public List<Review> reviewSelectByStoreName(String storeName) {
-		return jdbcTemplate.query("SELECT * FROM review WHERE storeNAme Like ?", new BeanPropertyRowMapper<Review>(Review.class),storeName);
+		return jdbcTemplate.query("SELECT * FROM review WHERE storeName = ?", new BeanPropertyRowMapper<Review>(Review.class),storeName);
 	}
 
 	@Override
 	public List<Review> reviewSelectBynickname(String nickname) {
-		return null;
+		return jdbcTemplate.query("SELECT * FROM review WHERE nickname = ?", new BeanPropertyRowMapper<Review>(Review.class),nickname);
 	}
 
 	@Override
 	public Review reviewSelectByPk(int pk) {
-		return null;
+		return jdbcTemplate.queryForObject("SELECT * FROM review WHERE pk=?", new BeanPropertyRowMapper<Review>(Review.class),pk);
 	}
 
 	@Override
 	public int reviewdelete(int pk) {
-		return 0;
+		return jdbcTemplate.update("DELETE FROM review WHERE pk =?"
+				,pk);
 	}
 
 	@Override
 	public int reviewInsert(Review review) {
-		// TODO Auto-generated method stub
-		return 0;
+		return jdbcTemplate.update("INSERT INTO review (storename, nickname, grade, userreview) values (?,?,?,?)"
+				,review.getStorename()
+				,review.getNickname()
+				,review.getGrade()
+				,review.getUserreview());
 	}
 	
 	
