@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 
 
-@Repository
+@Repository 
 public class GasstationRepositoryImpl  implements GasstationRepository{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
