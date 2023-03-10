@@ -20,7 +20,7 @@ public class DataSourceConfig {
 	@Bean // 생성한 객체 빈으로 등록!
 	public DataSource dataSource() {
 		BasicDataSource ds = new BasicDataSource();
-		ds.setUrl("jdbc:mysql://localhost:3306/my_db");
+		ds.setUrl("jdbc:mysql://192.168.0.109/zerozerotwo");
 		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		ds.setUsername("user1");
 		ds.setPassword("user1");
