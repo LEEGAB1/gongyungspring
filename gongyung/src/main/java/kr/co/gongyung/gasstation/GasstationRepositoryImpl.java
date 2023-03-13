@@ -33,7 +33,7 @@ public class GasstationRepositoryImpl  implements GasstationRepository{
 
 	@Override
 	public List<Gasstation> gasStationSelectByStoreName(String storeName) {
-		return jdbcTemplate.query("SELECT * FROM gas_station WHERE storename LIKE ?",new BeanPropertyRowMapper<Gasstation>(Gasstation.class),storeName);
+		return jdbcTemplate.query("SELECT * FROM gas_station WHERE storename = ?",new BeanPropertyRowMapper<Gasstation>(Gasstation.class),storeName);
 	}
 
 	@Override

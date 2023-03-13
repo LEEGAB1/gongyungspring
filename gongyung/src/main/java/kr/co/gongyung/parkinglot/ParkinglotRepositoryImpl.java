@@ -21,7 +21,7 @@ public class ParkinglotRepositoryImpl implements ParkinglotRepository {
 
 	@Override
 	public List<Parkinglot> parkinglotselectByStoreName(String storeName) {
-		return jdbcTemplate.query("SELECT * FROM parkinglot WHERE storename LIKE ?",new BeanPropertyRowMapper<Parkinglot>(Parkinglot.class), storeName);
+		return jdbcTemplate.query("SELECT * FROM parkinglot WHERE storename = ?",new BeanPropertyRowMapper<Parkinglot>(Parkinglot.class), storeName);
 	}
 
 	@Override
