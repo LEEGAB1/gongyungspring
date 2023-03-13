@@ -6,18 +6,18 @@
 <head>
     <meta charset="utf-8">
     <title>test</title>
-    <link rel="stylesheet" href="./mapstyle.css"/>
+    <link rel="stylesheet" href="./resources/css/mapstyle.css"/>
 
-    <script src="./selectlocation.js"></script>
+    <script src="./resources/js/selectlocation.js"></script>
     <script src="./gps.js"></script>
     <script src="./chart.js"></script>
     <script src="./sky.js"></script>
-    <script src="./sidebar.js"></script>
-    <script src="./oiltypebutton.js"></script>
+    <script src="./resources/js/sidebar.js"></script>
+    <script src="./resources/js/oiltypebutton.js"></script>
     <script src="./zoomcontrol.js"></script>
     <script src="./selectgudong.js"></script>
     <script src="./marker.js"></script>
-    <script src="./sidebarmarker.js"></script>
+    <script src="./resources/js/sidebarmarker.js"></script>
 </head>
 
 <body>
