@@ -9,25 +9,25 @@
     <link rel="stylesheet" href="./resources/css/mapstyle.css"/>
 
     <script src="./resources/js/selectlocation.js"></script>
-    <script src="./gps.js"></script>
-    <script src="./chart.js"></script>
-    <script src="./sky.js"></script>
+    <script src="./resources/js/gps.js"></script>
+    <script src="./resources/js/chart.js"></script>
+    <script src="./resources/js/sky.js"></script>
     <script src="./resources/js/sidebar.js"></script>
     <script src="./resources/js/oiltypebutton.js"></script>
-    <script src="./zoomcontrol.js"></script>
-    <script src="./selectgudong.js"></script>
-    <script src="./marker.js"></script>
+    <script src="./resources/js/zoomcontrol.js"></script>
+    <script src="./resources/js/selectgudong.js"></script>
+    <script src="./resources/js/marker.js"></script>
     <script src="./resources/js/sidebarmarker.js"></script>
 </head>
 
 <body>
     <div class="map_wrap, mapwrap">
         <div id="mapwrap">
-            <!-- ì§ëê° íìë  div -->
+            <!-- 지도가 표시될 div -->
 
             <div id="map" style="width:100%;height: 969px;"></div>
 
-            <!-- ì§ë ìì íìë  ë§ì»¤ ì¹´íê³ ë¦¬ -->
+            <!-- 지도 위에 표시될 마커 카테고리 -->
             <div class="category">
 
                 <ul>
@@ -37,12 +37,12 @@
                     <a class="storeMenus" onclick="asd()">
                         <li id="storeMenu" onclick="changeMarker('store')">
                             <span class="ico_comm ico_store"></span>
-                            ì£¼ì ì
+                            주유소
                         </li>
                     </a>
                     <li id="carparkMenu" onclick="changeMarker('carpark')">
                         <span class="ico_comm ico_carpark"></span>
-                        ì£¼ì°¨ì¥
+                        주차장
                     </li>
 
                 </ul>
@@ -51,23 +51,23 @@
             </div>
 
 
-            <!-- ì§ëíì ì»¨í¸ë¡¤ div ìëë¤ -->
+            <!-- 지도타입 컨트롤 div 입니다 -->
             <div class="custom_typecontrol radius_border">
-                <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">ì§ë</span>
-                <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">ì¤ì¹´ì´ë·°</span>
+                <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
+                <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
             </div>
 
-            <!-- ì§ë íë, ì¶ì ì»¨í¸ë¡¤ div ìëë¤ -->
+            <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
             <div class="custom_zoomcontrol radius_border">
                 <span onclick="zoomIn()"><img
-                        src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="íë"></span>
+                        src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>
                 <span onclick="zoomOut()"><img
-                        src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="ì¶ì"></span>
+                        src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
             </div>
 
         </div>
 
-    <!-- --------------------------------------ì¬ì´ëë°---------------- -->
+    <!-- --------------------------------------사이드바---------------- -->
 
     <div id="menu_wrap" class="bg_white">
         <div class="option">
@@ -75,44 +75,44 @@
 
                 <form onsubmit="clearSearchBox(searchPlaces()); return false;">
                     <!-- <button class="logoImage"></button> -->
-                    <img src="logo.png" class="logo">
-                    <!-- <h1 class="logoText">ê³µìì´</h1> -->
-                    <button type="button" id="loginbtn" class="loginbtn">ë¡ê·¸ì¸</button>
+                    <img src="./resources/image/logo.png" class="logo">
+                    <!-- <h1 class="logoText">공영이</h1> -->
+                    <button type="button" id="loginbtn" class="loginbtn">로그인</button>
                     <!-- <h2 class="logoText2" id="nick">(002)</h2> -->
                     <button onclick="" id="parkingbtn" class="parkingIcon"></button>
                     <button class="gasIcon"></button>
                 </form>
 
-                <!-- =============ê° êµ¬ ë³ë¡ ì°ê²°ìì==================================== -->
-                <h3 class="busan">ë¶ì°ê´ì­ì</h3>
+                <!-- =============각 구 별로 연결작업==================================== -->
+                <h3 class="busan">부산광역시</h3>
                 <form id="region">
                     <select class="sigungu" id="guSelect" onchange="gudong()">
-                        <option value="">ì/êµ°/êµ¬</option>
-                        <option value="ê°ìêµ¬">ê°ìêµ¬</option>
-                        <option value="ê¸ì êµ¬">ê¸ì êµ¬</option>
-                        <option value="ê¸°ì¥êµ°">ê¸°ì¥êµ°</option>
-                        <option value="ë¨êµ¬">ë¨êµ¬</option>
-                        <option value="ëêµ¬">ëêµ¬</option>
-                        <option value="ëëêµ¬">ëëêµ¬</option>
-                        <option value="ë¶ì°ì§êµ¬">ë¶ì°ì§êµ¬</option>
-                        <option value="ë¶êµ¬">ë¶êµ¬</option>
-                        <option value="ì¬ìêµ¬">ì¬ìêµ¬</option>
-                        <option value="ì¬íêµ¬">ì¬íêµ¬</option>
-                        <option value="ìêµ¬">ìêµ¬</option>
-                        <option value="ììêµ¬">ììêµ¬</option>
-                        <option value="ì°ì êµ¬">ì°ì êµ¬</option>
-                        <option value="ìëêµ¬">ìëêµ¬</option>
-                        <option value="ì¤êµ¬">ì¤êµ¬</option>
-                        <option value="í´ì´ëêµ¬">í´ì´ëêµ¬</option>
+                        <option value="">시/군/구</option>
+                        <option value="강서구">강서구</option>
+                        <option value="금정구">금정구</option>
+                        <option value="기장군">기장군</option>
+                        <option value="남구">남구</option>
+                        <option value="동구">동구</option>
+                        <option value="동래구">동래구</option>
+                        <option value="부산진구">부산진구</option>
+                        <option value="북구">북구</option>
+                        <option value="사상구">사상구</option>
+                        <option value="사하구">사하구</option>
+                        <option value="서구">서구</option>
+                        <option value="수영구">수영구</option>
+                        <option value="연제구">연제구</option>
+                        <option value="영도구">영도구</option>
+                        <option value="중구">중구</option>
+                        <option value="해운대구">해운대구</option>
                     </select>
                     
                 </form>
                 <fom id = "zone">
                     <select id="dongSelect" class="dongs">
-                        <option value="">ì/ë©´/ë</option>
+                        <option value="">읍/면/동</option>
                     </select>
                 </fom>
-                <button type="button" id="selectlocation" class="checkbtn">ì¡°í</button>
+                <button type="button" id="selectlocation" class="checkbtn">조회</button>
                 
                 
 
@@ -126,38 +126,38 @@
 
 
                 <div>
-                    <!-- í¼ìì± -->
-                    <form id="mainform">
-                        <div class="sidebar">
-                            <button class="closeSidebar" onclick="closeSidebar()"></button>
+                    <!-- 폼생성 -->
+                    <div class="sidebar">
+                        <button class="closeSidebar" onclick="closeSidebar()"></button>
+                        <form id="mainform">
                             <div class="sidebarHead" style="height: 12%;">
-                                <p class="parkingname"> ì£¼ì°¨ì¥ì´ë¦ </p>
+                                <p class="parkingname"> 주유소이름 </p>
                                 <p class="parkingaddr" type="text" id="namebtn" name="storename"></p>
-                                <p class="mainstar"> íì  : âââââ </p>
+                                <p class="mainstar"> 평점 : ★★★★☆ </p>
 
                             </div>
 
                             <hr>
                             <div class="oil" >
                                 <div class="oilType radius_border">
-                                    <span id="btnDiesel" class="selected_btn" onclick="setOilType('diesel')">ê²½ì </span>
-                                    <span id="btnGasoline" class="btn" onclick="setOilType('gasoline')">íë°ì </span>
+                                    <span id="btnDiesel" class="selected_btn" onclick="setOilType('diesel')">경유</span>
+                                    <span id="btnGasoline" class="btn" onclick="setOilType('gasoline')">휘발유</span>
                                 </div>
-                                    <p style="font-size: large;text-align : center; "> <span id="gasRegion">ëêµ¬</span>ìì <span id="priceNum">3</span>ë²ì§¸ë¡ ì¼ì§!</p>
-                                    <p style="color: #160d69; font-weight: bold; text-align: center; font-size: 20px;"> ì¤ëì ì ê° ì ë³´ </p>
+                                    <p style="font-size: large;text-align : center; "> <span id="gasRegion">동구</span>에서 <span id="priceNum">3</span>번째로 싼집!</p>
+                                    <p style="color: #160d69; font-weight: bold; text-align: center; font-size: 20px;"> 오늘의 유가 정보 </p>
                                 <p>
                                 <div class="ulstyle">
                                     <div>
                                         <div class="gyeong"> 
-                                            <p>ê²½ì </p> 
+                                            <p>경유</p> 
                                             <p class="lefttext" id="diesel">2000</p>
                                         </div>
                                         <div class="hwi">
-                                            <p>íë°ì </p>
+                                            <p>휘발유</p>
                                             <p class="righttext" id="gasoline">3500</p>
                                         </div>
-                                        <div class="smalltext" style="color: #ff7200;text-align: left;">+102ì</div>
-                                        <div class="smalltext2" style="color: #ff7200; text-align: right; ">+12ì</div>
+                                        <div class="smalltext" style="color: #ff7200;text-align: left;">+102원</div>
+                                        <div class="smalltext2" style="color: #ff7200; text-align: right; ">+12원</div>
                                     </div>
     
 
@@ -165,8 +165,8 @@
                                 </dib>
                                 <hr>
                                 <div>
-                                    <!-- <p class="upup">êµ¬ìì ëªë²ì§¸ë¡ ì¼ì§ ë¹êµ</p>
-                            <p class="downdown"> 7ì¼ì¹ íê· ê°ê²©ê³¼ ì¤ëì ê°ê²© ë¹êµ</p> -->
+                                    <!-- <p class="upup">구에서 몇번째로 싼지 비교</p>
+                            <p class="downdown"> 7일치 평균가격과 오늘의 가격 비교</p> -->
                                     <canvas id="myChart" style="width: 200px;"></canvas>
 
 
@@ -179,14 +179,14 @@
                     <hr style="margin-top: 20px;">
                     <form id="reviewform">
                         <div class="review1">
-                            <span style="margin-left: 20px; color: #160d69;">ë°©ë¬¸ì ë¦¬ë·°</span>
-                            <button class="openBtn" onclick="joinCheck()" >âð»</button>
+                            <span style="margin-left: 20px; color: #160d69;">방문자 리뷰</span>
+                            <button class="openBtn" onclick="joinCheck()" >✍🏻</button>
                             <div class="modal hidden">
                                 <div class="bg"></div>
                                 <div class="modalBox"
                                     style="display: flex;align-items:center;flex-direction: column;justify-content:space-around">
-                                    <p id="reviewfont">ë¦¬ë·° ìì±íê¸°</p>
-                                    <p>âºï¸ðð¥</p>
+                                    <p id="reviewfont">리뷰 작성하기</p>
+                                    <p>☺️😊😥</p>
                                     <div class="star-rating">
                                         <input type="radio" id="5-stars" name="rating" value="5" />
                                         <label for="5-stars" class="star">&#9733;</label>
@@ -200,10 +200,10 @@
                                         <label for="1-star" class="star">&#9733;</label>
                                     </div>
                                     <textarea class="reviewInput" name="reviewInput"
-                                        placeholder="ë°©ë¬¸í ê°ê²ë ì´ë ëì? ë¦¬ë·°ë¥¼ ë¨ê²¨ì£¼ì¸ì."></textarea>
+                                        placeholder="방문한 가게는 어땠나요? 리뷰를 남겨주세요."></textarea>
                                     <div style="display: flex;">
-                                        <button class="reviewBtn" id="reviewBtn" type="submit">ë±ë¡</button>
-                                        <button class="closeBtn">ë«ê¸°</button>
+                                        <button class="reviewBtn" id="reviewBtn" type="submit">등록</button>
+                                        <button class="closeBtn">닫기</button>
                                     </div>
                                 </div>
                             </div>
@@ -237,7 +237,7 @@
                     let reviewform = document.getElementById("reviewform");
                     let mainform = document.getElementById("mainform");
 
-                    const open = (e) => {
+                    const open = () => {
                         document.querySelector(".modal").classList.remove("hidden");
                     }
 
@@ -252,21 +252,21 @@
 
                     window.addEventListener("load", function (e) {
                         console.log(nickname);
-                        nick.innerHTML = nickname + "ë^^";
+                        nick.innerHTML = nickname + "님^^";
 
                     })
 
                     function win_open(page, name) {
-                        // window.open("íìë  ë¬¸ì ê²½ë¡","íìë  ë¬¸ì ì´ë¦","ìµì(ìì¹, baríì, í¬ê¸° ë±)");
+                        // window.open("팝업될 문서 경로","팝업될 문서 이름","옵션(위치, bar표시, 크기 등)");
                         window.open(page, name, "width=300, height=400, left=0, top=0");
                     };
 
                     function joinCheck() {
-                        const nickname = localStorage.getItem('nickname'); // ë¡ì»¬ ì¤í ë¦¬ì§ìì nickname ê°ì ê°ì ¸ì´
+                        const nickname = localStorage.getItem('nickname'); // 로컬 스토리지에서 nickname 값을 가져옴
                         
-                        if (nickname == "null") { // nicknameì´ undefined, null, ë¹ ë¬¸ìì´("")ì¸ ê²½ì° ëª¨ë ì²ë¦¬
-                            console.log('nickname ê°ì´ ììµëë¤.');
-                            window.location.href = './join.html'; // ë¡ê·¸ì¸ íì´ì§ë¡ ì´ë
+                        if (nickname == "null") { // nickname이 undefined, null, 빈 문자열("")인 경우 모두 처리
+                            console.log('nickname 값이 없습니다.');
+                            window.location.href = './join.html'; // 로그인 페이지로 이동
                         }
                     }
                       
@@ -279,7 +279,7 @@
 
                         fetch("http://localhost:8080/gonggongyung/gogo/review", {
                             method: "POST",
-                            body: new URLSearchParams([...listform.entries()]), // post bodyíì
+                            body: new URLSearchParams([...listform.entries()]), // post body형식
                             headers: {
                                 "Content-Type": "application/x-www-form-urlencoded",
                             }
@@ -300,7 +300,7 @@
                                         userReview.innerHTML += obj[i].nickname + ":" + obj[i].userreview + "\n";
                                     }
                                 } else {
-                                    userReview.innerText ="ìì± ë ë¦¬ë·°ê° ììµëë¤.";
+                                    userReview.innerText ="작성 된 리뷰가 없습니다.";
                                 }
                             
    
@@ -321,7 +321,7 @@
                     })
 
                     reviewBtn.addEventListener("click", (e) => {
-                        console.log("ëë¦¼");
+                        console.log("눌림");
 
                         const rform = new FormData(reviewform);
                         rform.append("username", nickname);
@@ -329,7 +329,7 @@
 
                         fetch("http://localhost:8080/gonggongyung/gogo/review", {
                             method: "POST",
-                            body: new URLSearchParams([...rform.entries()]), // post bodyíì
+                            body: new URLSearchParams([...rform.entries()]), // post body형식
                             headers: {
                                 "Content-Type": "application/x-www-form-urlencoded",
                             }
@@ -369,7 +369,7 @@
 
 
 
-    <!-- ì§ëë¥¼ íìí  div ìëë¤ -->
+    <!-- 지도를 표시할 div 입니다 -->
     <!-- <div id="map" style="width:100%; height:0;"></div> -->
 
 
@@ -382,12 +382,12 @@
 
     <script>
 
-        // íë ë¹ë© ì¤ì¬ ì§ë ì¤ì 
+        // 혜도 빌딩 중심 지도 설정
 
-        var mapContainer = document.getElementById('map'), // ì§ëë¥¼ íìí  div 
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = {
-                center: new kakao.maps.LatLng(35.15959895331954, 129.0601078522617), // ì§ëì ì¤ì¬ì¢í
-                level: 2 // ì§ëì íë ë ë²¨
+                center: new kakao.maps.LatLng(35.15959895331954, 129.0601078522617), // 지도의 중심좌표
+                level: 2 // 지도의 확대 레벨
             };
 
 
@@ -396,50 +396,50 @@
 
 
 
-        // ì¼ë° ì§ëì ì¤ì¹´ì´ë·°ë¡ ì§ë íìì ì íí  ì ìë ì§ëíì ì»¨í¸ë¡¤ì ìì±í©ëë¤
+        // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
         var mapTypeControl = new kakao.maps.MapTypeControl();
 
 
 
-        // íëë¹ë© ë° ì£¼ì°¨ì¥, ì£¼ì ì
+        // 혜도빌딩 및 주차장, 주유소
 
-        var imageSrc = 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FG3Iqf%2FbtrY7MDoFpt%2FYI9Vj8cKsPftBBdKOKvOQK%2Fimg.png', // ë§ì»¤ì´ë¯¸ì§ì ì£¼ììëë¤    
-            imageSize = new kakao.maps.Size(64, 69), // ë§ì»¤ì´ë¯¸ì§ì í¬ê¸°ìëë¤
-            imageOption = { offset: new kakao.maps.Point(27, 69) }; // ë§ì»¤ì´ë¯¸ì§ì ìµììëë¤. ë§ì»¤ì ì¢íì ì¼ì¹ìí¬ ì´ë¯¸ì§ ìììì ì¢íë¥¼ ì¤ì í©ëë¤
-        // ë§ì»¤ì ì´ë¯¸ì§ì ë³´ë¥¼ ê°ì§ê³  ìë ë§ì»¤ì´ë¯¸ì§ë¥¼ ìì±í©ëë¤
+        var imageSrc = 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FG3Iqf%2FbtrY7MDoFpt%2FYI9Vj8cKsPftBBdKOKvOQK%2Fimg.png', // 마커이미지의 주소입니다    
+            imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+            imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다
+        // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
         var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-            markerPosition = new kakao.maps.LatLng(35.15959895331954, 129.0601078522617); // ë§ì»¤ê° íìë  ìì¹ìëë¤
+            markerPosition = new kakao.maps.LatLng(35.15959895331954, 129.0601078522617); // 마커가 표시될 위치입니다
 
 
 
-        // ë§ì»¤ë¥¼ ìì±í©ëë¤
+        // 마커를 생성합니다
         var marker = new kakao.maps.Marker({
             position: markerPosition,
-            image: markerImage // ë§ì»¤ì´ë¯¸ì§ ì¤ì  setOilType
+            image: markerImage // 마커이미지 설정 setOilType
         });
 
 
-        // ë§ì»¤ë¥¼ ìì±í©ëë¤
+        // 마커를 생성합니다
         var marker = new kakao.maps.Marker({
         });
-        var map = new kakao.maps.Map(mapContainer, mapOption); // ì§ëë¥¼ ìì±í©ëë¤
+        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
         //-------------------------------make marker---------------------------------------------------------
 
-        var options = { // Drawing Managerë¥¼ ìì±í  ë ì¬ì©í  ìµììëë¤
-            map: map, // Drawing Managerë¡ ê·¸ë¦¬ê¸° ììë¥¼ ê·¸ë¦´ map ê°ì²´ìëë¤
-            drawingMode: [ // drawing managerë¡ ì ê³µí  ê·¸ë¦¬ê¸° ìì ëª¨ëìëë¤
+        var options = { // Drawing Manager를 생성할 때 사용할 옵션입니다
+            map: map, // Drawing Manager로 그리기 요소를 그릴 map 객체입니다
+            drawingMode: [ // drawing manager로 제공할 그리기 요소 모드입니다
                 kakao.maps.drawing.OverlayType.MARKER,
             ],
-            // ì¬ì©ììê² ì ê³µí  ê·¸ë¦¬ê¸° ê°ì´ë í´íìëë¤
-            // ì¬ì©ììê² ëíì ê·¸ë¦´ë, ëëê·¸í ë, ìì í ë ê°ì´ë í´íì íìíëë¡ ì¤ì í©ëë¤
-            markerOptions: { // ë§ì»¤ ìµììëë¤ 
-                draggable: true, // ë§ì»¤ë¥¼ ê·¸ë¦¬ê³  ëì ëëê·¸ ê°ë¥íê² í©ëë¤ 
-                removable: true // ë§ì»¤ë¥¼ ì­ì  í  ì ìëë¡ x ë²í¼ì´ íìë©ëë¤  
+            // 사용자에게 제공할 그리기 가이드 툴팁입니다
+            // 사용자에게 도형을 그릴때, 드래그할때, 수정할때 가이드 툴팁을 표시하도록 설정합니다
+            markerOptions: { // 마커 옵션입니다 
+                draggable: true, // 마커를 그리고 나서 드래그 가능하게 합니다 
+                removable: true // 마커를 삭제 할 수 있도록 x 버튼이 표시됩니다  
             },
         };
 
-        // ìì ìì±í ìµìì¼ë¡ Drawing Managerë¥¼ ìì±í©ëë¤
+        // 위에 작성한 옵션으로 Drawing Manager를 생성합니다
        // var manager = new kakao.maps.drawing.DrawingManager(options);
 
 
@@ -448,7 +448,7 @@
 
 
 
-        //----------------------------------------------------------------------------------------------------------------------ê²ìí ë postë¡ ë´ê¸°
+        //----------------------------------------------------------------------------------------------------------------------검색할때 post로 담기
 
 
 
@@ -460,7 +460,7 @@
 
 
      
-        //----------------------------------------------------------------------------------------------------------------------ê²ìí ë postë¡ ë´ê¸°
+        //----------------------------------------------------------------------------------------------------------------------검색할때 post로 담기
 
 
        
@@ -482,7 +482,7 @@
         //                 gasstation.push(data[i]);
         //             }
 
-        //             console.log(data); // ë°ì´í° ì¶ë ¥
+        //             console.log(data); // 데이터 출력
         //         });
 
         //     fetch("http://localhost:8080/gonggongyung/gogo/parkinglot/", {
@@ -498,11 +498,11 @@
         //                 parkinglot.push(data[i]);
         //             }
 
-        //             console.log(data); // ë°ì´í° ì¶ë ¥
+        //             console.log(data); // 데이터 출력
         //         });
-        // }); //ì¤í¬ë¦½í¸---------------------
+        // }); //스크립트---------------------
 
-        // í¸ìì  ë§ì»¤ê° íìë  ì¢í ë°°ì´ìëë¤
+        // 편의점 마커가 표시될 좌표 배열입니다
 
 
 
@@ -511,7 +511,7 @@
         // function asd() {
         //     let storeMenu = document.getElementsByClassName("storeMenus");
 
-        //     fetch("http://localhost:8080/gonggongyung/gogo/gasstation/", { // ëë¥´ë©´ ê°ë¼
+        //     fetch("http://localhost:8080/gonggongyung/gogo/gasstation/", { // 누르면 가라
         //     }).then((response) => response.json())
         //         .then((data) => {
         //             for (let i = 0; i < data.length; i += 2) {
@@ -522,13 +522,13 @@
         //     createStoreMarkers();
         // }
 
-        // ì»¤í¼ì ë§ì»¤ê° íìë  ì¢í ë°°ì´ìëë¤
+        // 커피숍 마커가 표시될 좌표 배열입니다
         var coffeePositions = [];
 
         var storePositions = [];
 
 
-        // ì£¼ì°¨ì¥ ë§ì»¤ê° íìë  ì¢í ë°°ì´ìëë¤
+        // 주차장 마커가 표시될 좌표 배열입니다
         var carparkPositions = [
             new kakao.maps.LatLng(35.213725, 129.080538),
             new kakao.maps.LatLng(35.162218, 128.986650),
@@ -562,20 +562,20 @@
             new kakao.maps.LatLng(35.220937, 129.146448),
         ];
 
-        var markerImageSrc = 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FczwJDf%2Fbtr0aQQF3K0%2FAsphV4K9VzNi3sKyOLJXRK%2Fimg.png';  // ë§ì»¤ì´ë¯¸ì§ì ì£¼ììëë¤. ì¤íë¼ì´í¸ ì´ë¯¸ì§ ìëë¤
-        coffeeMarkers = [], // ì»¤í¼ì ë§ì»¤ ê°ì²´ë¥¼ ê°ì§ê³  ìì ë°°ì´ìëë¤
-            storeMarkers = [], // í¸ìì  ë§ì»¤ ê°ì²´ë¥¼ ê°ì§ê³  ìì ë°°ì´ìëë¤
-            carparkMarkers = []; // ì£¼ì°¨ì¥ ë§ì»¤ ê°ì²´ë¥¼ ê°ì§ê³  ìì ë°°ì´ìëë¤
+        var markerImageSrc = 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FczwJDf%2Fbtr0aQQF3K0%2FAsphV4K9VzNi3sKyOLJXRK%2Fimg.png';  // 마커이미지의 주소입니다. 스프라이트 이미지 입니다
+        coffeeMarkers = [], // 커피숍 마커 객체를 가지고 있을 배열입니다
+            storeMarkers = [], // 편의점 마커 객체를 가지고 있을 배열입니다
+            carparkMarkers = []; // 주차장 마커 객체를 가지고 있을 배열입니다
 
 
-        createCoffeeMarkers(); // ì»¤í¼ì ë§ì»¤ë¥¼ ìì±íê³  ì»¤í¼ì ë§ì»¤ ë°°ì´ì ì¶ê°í©ëë¤
-        createStoreMarkers(); // í¸ìì  ë§ì»¤ë¥¼ ìì±íê³  í¸ìì  ë§ì»¤ ë°°ì´ì ì¶ê°í©ëë¤
-        createCarparkMarkers(); // ì£¼ì°¨ì¥ ë§ì»¤ë¥¼ ìì±íê³  ì£¼ì°¨ì¥ ë§ì»¤ ë°°ì´ì ì¶ê°í©ëë¤
+        createCoffeeMarkers(); // 커피숍 마커를 생성하고 커피숍 마커 배열에 추가합니다
+        createStoreMarkers(); // 편의점 마커를 생성하고 편의점 마커 배열에 추가합니다
+        createCarparkMarkers(); // 주차장 마커를 생성하고 주차장 마커 배열에 추가합니다
 
-        changeMarker(''); // ì§ëì ì»¤í¼ì ë§ì»¤ê° ë³´ì´ëë¡ ì¤ì í©ëë¤    
+        changeMarker(''); // 지도에 커피숍 마커가 보이도록 설정합니다    
 
 
-        // ë§ì»¤ì´ë¯¸ì§ì ì£¼ìì, í¬ê¸°, ìµìì¼ë¡ ë§ì»¤ ì´ë¯¸ì§ë¥¼ ìì±íì¬ ë¦¬í´íë í¨ììëë¤
+        // 마커이미지의 주소와, 크기, 옵션으로 마커 이미지를 생성하여 리턴하는 함수입니다
      
 
 
@@ -598,9 +598,9 @@
 
         // function relayout() {
 
-        //     // ì§ëë¥¼ íìíë div í¬ê¸°ë¥¼ ë³ê²½í ì´í ì§ëê° ì ìì ì¼ë¡ íì¶ëì§ ìì ìë ììµëë¤
-        //     // í¬ê¸°ë¥¼ ë³ê²½í ì´íìë ë°ëì  map.relayout í¨ìë¥¼ í¸ì¶í´ì¼ í©ëë¤ 
-        //     // windowì resize ì´ë²¤í¸ì ìí í¬ê¸°ë³ê²½ì map.relayout í¨ìê° ìëì¼ë¡ í¸ì¶ë©ëë¤
+        //     // 지도를 표시하는 div 크기를 변경한 이후 지도가 정상적으로 표출되지 않을 수도 있습니다
+        //     // 크기를 변경한 이후에는 반드시  map.relayout 함수를 호출해야 합니다 
+        //     // window의 resize 이벤트에 의한 크기변경은 map.relayout 함수가 자동으로 호출됩니다
         //     map.relayout();
         // }
 
@@ -608,31 +608,31 @@
 
 
 
-        // ë§ì»¤ë¥¼ í´ë¦­íì ë í´ë¹ ì¥ìì ìì¸ì ë³´ë¥¼ ë³´ì¬ì¤ ì»¤ì¤íì¤ë²ë ì´ìëë¤
+        // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
         var placeOverlay = new kakao.maps.CustomOverlay({ zIndex: 1 }),
-            contentNode = document.createElement('div'), // ì»¤ì¤í ì¤ë²ë ì´ì ì»¨íì¸  ìë¦¬ë¨¼í¸ ìëë¤ 
-            markers = [], // ë§ì»¤ë¥¼ ë´ì ë°°ì´ìëë¤
-            currCategory = ''; // íì¬ ì íë ì¹´íê³ ë¦¬ë¥¼ ê°ì§ê³  ìì ë³ììëë¤
+            contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
+            markers = [], // 마커를 담을 배열입니다
+            currCategory = ''; // 현재 선택된 카테고리를 가지고 있을 변수입니다
         var ps = new kakao.maps.services.Places(map);
 
-        // ì§ëì idle ì´ë²¤í¸ë¥¼ ë±ë¡í©ëë¤
+        // 지도에 idle 이벤트를 등록합니다
         kakao.maps.event.addListener(map, 'idle', searchPlaces);
 
-        // ì»¤ì¤í ì¤ë²ë ì´ì ì»¨íì¸  ë¸ëì css classë¥¼ ì¶ê°í©ëë¤ 
+        // 커스텀 오버레이의 컨텐츠 노드에 css class를 추가합니다 
         contentNode.className = 'placeinfo_wrap';
 
-        // ì»¤ì¤í ì¤ë²ë ì´ì ì»¨íì¸  ë¸ëì mousedown, touchstart ì´ë²¤í¸ê° ë°ìíìë
-        // ì§ë ê°ì²´ì ì´ë²¤í¸ê° ì ë¬ëì§ ìëë¡ ì´ë²¤í¸ í¸ë¤ë¬ë¡ kakao.maps.event.preventMap ë©ìëë¥¼ ë±ë¡í©ëë¤ 
+        // 커스텀 오버레이의 컨텐츠 노드에 mousedown, touchstart 이벤트가 발생했을때
+        // 지도 객체에 이벤트가 전달되지 않도록 이벤트 핸들러로 kakao.maps.event.preventMap 메소드를 등록합니다 
         addEventHandle(contentNode, 'mousedown', kakao.maps.event.preventMap);
         addEventHandle(contentNode, 'touchstart', kakao.maps.event.preventMap);
 
-        // ì»¤ì¤í ì¤ë²ë ì´ ì»¨íì¸ ë¥¼ ì¤ì í©ëë¤
+        // 커스텀 오버레이 컨텐츠를 설정합니다
         placeOverlay.setContent(contentNode);
 
-        // ê° ì¹´íê³ ë¦¬ì í´ë¦­ ì´ë²¤í¸ë¥¼ ë±ë¡í©ëë¤
+        // 각 카테고리에 클릭 이벤트를 등록합니다
         addCategoryClickEvent();
 
-        // ìë¦¬ë¨¼í¸ì ì´ë²¤í¸ í¸ë¤ë¬ë¥¼ ë±ë¡íë í¨ììëë¤
+        // 엘리먼트에 이벤트 핸들러를 등록하는 함수입니다
         function addEventHandle(target, type, callback) {
             if (target.addEventListener) {
                 target.addEventListener(type, callback);
@@ -641,52 +641,52 @@
             }
         }
 
-        // ì¹´íê³ ë¦¬ ê²ìì ìì²­íë í¨ììëë¤
+        // 카테고리 검색을 요청하는 함수입니다
         // function searchPlaces() {
         //     if (!currCategory) {
         //         return;
         //     }
 
-        //     // ì»¤ì¤í ì¤ë²ë ì´ë¥¼ ì¨ê¹ëë¤ 
+        //     // 커스텀 오버레이를 숨깁니다 
         //     placeOverlay.setMap(null);
 
-        //     // ì§ëì íìëê³  ìë ë§ì»¤ë¥¼ ì ê±°í©ëë¤
+        //     // 지도에 표시되고 있는 마커를 제거합니다
         //     removeMarker();
 
         //     ps.categorySearch(currCategory, placesSearchCB, { useMapBounds: true });
         // }
 
-        // ì¥ìê²ìì´ ìë£ëì ë í¸ì¶ëë ì½ë°±í¨ì ìëë¤
+        // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
         // function placesSearchCB(data, status, pagination) {
         //     if (status === kakao.maps.services.Status.OK) {
 
-        //         // ì ìì ì¼ë¡ ê²ìì´ ìë£ëì¼ë©´ ì§ëì ë§ì»¤ë¥¼ íì¶í©ëë¤
+        //         // 정상적으로 검색이 완료됐으면 지도에 마커를 표출합니다
         //         displayPlaces(data);
         //     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-        //         // ê²ìê²°ê³¼ê° ìëê²½ì° í´ì¼í  ì²ë¦¬ê° ìë¤ë©´ ì´ê³³ì ìì±í´ ì£¼ì¸ì
+        //         // 검색결과가 없는경우 해야할 처리가 있다면 이곳에 작성해 주세요
 
         //     } else if (status === kakao.maps.services.Status.ERROR) {
-        //         // ìë¬ë¡ ì¸í´ ê²ìê²°ê³¼ê° ëì¤ì§ ìì ê²½ì° í´ì¼í  ì²ë¦¬ê° ìë¤ë©´ ì´ê³³ì ìì±í´ ì£¼ì¸ì
+        //         // 에러로 인해 검색결과가 나오지 않은 경우 해야할 처리가 있다면 이곳에 작성해 주세요
 
         //     }
         // }
 
-        // ì§ëì ë§ì»¤ë¥¼ íì¶íë í¨ììëë¤
+        // 지도에 마커를 표출하는 함수입니다
         // function displayPlaces(places) {
 
-        //     // ëªë²ì§¸ ì¹´íê³ ë¦¬ê° ì íëì´ ìëì§ ì»ì´ìµëë¤
-        //     // ì´ ììë ì¤íë¼ì´í¸ ì´ë¯¸ì§ììì ìì¹ë¥¼ ê³ì°íëë° ì¬ì©ë©ëë¤
+        //     // 몇번째 카테고리가 선택되어 있는지 얻어옵니다
+        //     // 이 순서는 스프라이트 이미지에서의 위치를 계산하는데 사용됩니다
         //     var order = document.getElementById(currCategory).getAttribute('data-order');
 
 
 
         //     for (var i = 0; i < places.length; i++) {
 
-        //         // ë§ì»¤ë¥¼ ìì±íê³  ì§ëì íìí©ëë¤
+        //         // 마커를 생성하고 지도에 표시합니다
         //         var marker = addMarker(new kakao.maps.LatLng(places[i].y, places[i].x), order);
 
-        //         // ë§ì»¤ì ê²ìê²°ê³¼ í­ëª©ì í´ë¦­ íì ë
-        //         // ì¥ìì ë³´ë¥¼ íì¶íëë¡ í´ë¦­ ì´ë²¤í¸ë¥¼ ë±ë¡í©ëë¤
+        //         // 마커와 검색결과 항목을 클릭 했을 때
+        //         // 장소정보를 표출하도록 클릭 이벤트를 등록합니다
         //         (function (marker, place) {
         //             kakao.maps.event.addListener(marker, 'click', function () {
         //                 displayPlaceInfo(place);
@@ -695,28 +695,28 @@
         //     }
         // }
 
-        // // ë§ì»¤ë¥¼ ìì±íê³  ì§ë ìì ë§ì»¤ë¥¼ íìíë í¨ììëë¤
+        // // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
         // function addMarker(position, order) {
-        //     var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png', // ë§ì»¤ ì´ë¯¸ì§ url, ì¤íë¼ì´í¸ ì´ë¯¸ì§ë¥¼ ìëë¤
-        //         imageSize = new kakao.maps.Size(27, 28),  // ë§ì»¤ ì´ë¯¸ì§ì í¬ê¸°
+        //     var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+        //         imageSize = new kakao.maps.Size(27, 28),  // 마커 이미지의 크기
         //         imgOptions = {
-        //             spriteSize: new kakao.maps.Size(72, 208), // ì¤íë¼ì´í¸ ì´ë¯¸ì§ì í¬ê¸°
-        //             spriteOrigin: new kakao.maps.Point(46, (order * 36)), // ì¤íë¼ì´í¸ ì´ë¯¸ì§ ì¤ ì¬ì©í  ìì­ì ì¢ìë¨ ì¢í
-        //             offset: new kakao.maps.Point(11, 28) // ë§ì»¤ ì¢íì ì¼ì¹ìí¬ ì´ë¯¸ì§ ë´ììì ì¢í
+        //             spriteSize: new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기
+        //             spriteOrigin: new kakao.maps.Point(46, (order * 36)), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+        //             offset: new kakao.maps.Point(11, 28) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
         //         },
         //         markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
         //         marker = new kakao.maps.Marker({
-        //             position: position, // ë§ì»¤ì ìì¹
+        //             position: position, // 마커의 위치
         //             image: markerImage
         //         });
 
-        //     marker.setMap(map); // ì§ë ìì ë§ì»¤ë¥¼ íì¶í©ëë¤
-        //     markers.push(marker);  // ë°°ì´ì ìì±ë ë§ì»¤ë¥¼ ì¶ê°í©ëë¤
+        //     marker.setMap(map); // 지도 위에 마커를 표출합니다
+        //     markers.push(marker);  // 배열에 생성된 마커를 추가합니다
 
         //     return marker;
         // }
 
-        // ì§ë ìì íìëê³  ìë ë§ì»¤ë¥¼ ëª¨ë ì ê±°í©ëë¤
+        // 지도 위에 표시되고 있는 마커를 모두 제거합니다
 
 
 
@@ -726,15 +726,15 @@
 
 
 
- //ì­ì  ìì 
-        // í´ë¦­í ë§ì»¤ì ëí ì¥ì ìì¸ì ë³´ë¥¼ ì»¤ì¤í ì¤ë²ë ì´ë¡ íìíë í¨ììëë¤
+ //삭제 예정
+        // 클릭한 마커에 대한 장소 상세정보를 커스텀 오버레이로 표시하는 함수입니다
         // function displayPlaceInfo(place) {
         //     var content = '<div class="placeinfo">' +
         //         '   <a class="title" href="' + place.place_url + '" target="_blank" title="' + place.place_name + '">' + place.place_name + '</a>';
 
         //     if (place.road_address_name) {
         //         content += '    <span title="' + place.road_address_name + '">' + place.road_address_name + '</span>' +
-        //             '  <span class="jibun" title="' + place.address_name + '">(ì§ë² : ' + place.address_name + ')</span>';
+        //             '  <span class="jibun" title="' + place.address_name + '">(지번 : ' + place.address_name + ')</span>';
         //     } else {
         //         content += '    <span title="' + place.address_name + '">' + place.address_name + '</span>';
         //     }
@@ -749,7 +749,7 @@
         // }
 
 
-        // ê° ì¹´íê³ ë¦¬ì í´ë¦­ ì´ë²¤í¸ë¥¼ ë±ë¡í©ëë¤
+        // 각 카테고리에 클릭 이벤트를 등록합니다
         // function addCategoryClickEvent() {
         //     var category = document.getElementById('category'),
         //         children = category.children;
@@ -759,7 +759,7 @@
         //     }
         // }
 
-        // // ì¹´íê³ ë¦¬ë¥¼ í´ë¦­íì ë í¸ì¶ëë í¨ììëë¤
+        // // 카테고리를 클릭했을 때 호출되는 함수입니다
         // function onClickCategory() {
         //     var id = this.id,
         //         className = this.className;
@@ -777,7 +777,7 @@
         //     }
         // }
 
-        // í´ë¦­ë ì¹´íê³ ë¦¬ìë§ í´ë¦­ë ì¤íì¼ì ì ì©íë í¨ììëë¤
+        // 클릭된 카테고리에만 클릭된 스타일을 적용하는 함수입니다
         // function changeCategoryClass(el) {
         //     var category = document.getElementById('category'),
         //         children = category.children,
@@ -796,63 +796,63 @@
 
 
 
-        // -------------------í¤ìë ê²ì-----------------------------------------------------------
+        // -------------------키워드 검색-----------------------------------------------------------
 
 
 
-        // // ë§ì»¤ë¥¼ ë´ì ë°°ì´ìëë¤
+        // // 마커를 담을 배열입니다
         // var markers = [];
 
-        // var mapContainer = document.getElementById('map'), // ì§ëë¥¼ íìí  div 
+        // var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
         //     mapOption = {
-        //         level: 2 // ì§ëì íë ë ë²¨
+        //         level: 2 // 지도의 확대 레벨
         //     };
 
 
-        // // ì¥ì ê²ì ê°ì²´ë¥¼ ìì±í©ëë¤
+        // // 장소 검색 객체를 생성합니다
         // var ps = new kakao.maps.services.Places();
-        // // ê²ì ê²°ê³¼ ëª©ë¡ì´ë ë§ì»¤ë¥¼ í´ë¦­íì ë ì¥ìëªì íì¶í  ì¸í¬ìëì°ë¥¼ ìì±í©ëë¤
+        // // 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
         // var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
 
-        // // í¤ìëë¡ ì¥ìë¥¼ ê²ìí©ëë¤
+        // // 키워드로 장소를 검색합니다
         // searchPlaces();
 
-        // // í¤ìë ê²ìì ìì²­íë í¨ììëë¤
+        // // 키워드 검색을 요청하는 함수입니다
         // function searchPlaces() {
 
         //     var keyword = document.getElementById('keyword').value;
 
         //     if (!keyword.replace(/^\s+|\s+$/g, '')) {
-        //         // alert('í¤ìëë¥¼ ìë ¥í´ì£¼ì¸ì!');
+        //         // alert('키워드를 입력해주세요!');
         //         return false;
         //     } else {
 
         //     }
 
-        //     // ì¥ìê²ì ê°ì²´ë¥¼ íµí´ í¤ìëë¡ ì¥ìê²ìì ìì²­í©ëë¤
+        //     // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
         //     ps.keywordSearch(keyword, placesSearchCB);
 
         // }
 
-        // // ì¥ìê²ìì´ ìë£ëì ë í¸ì¶ëë ì½ë°±í¨ì ìëë¤
+        // // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
         // function placesSearchCB(data, status, pagination) {
         //     if (status === kakao.maps.services.Status.OK) {
 
-        //         // ì ìì ì¼ë¡ ê²ìì´ ìë£ëì¼ë©´
-        //         // ê²ì ëª©ë¡ê³¼ ë§ì»¤ë¥¼ íì¶í©ëë¤
+        //         // 정상적으로 검색이 완료됐으면
+        //         // 검색 목록과 마커를 표출합니다
         //         displayPlaces(data);
 
-        //         // íì´ì§ ë²í¸ë¥¼ íì¶í©ëë¤
+        //         // 페이지 번호를 표출합니다
         //         displayPagination(pagination);
 
         //     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
-        //         // alert('ê²ì ê²°ê³¼ê° ì¡´ì¬íì§ ììµëë¤.');
+        //         // alert('검색 결과가 존재하지 않습니다.');
         //         return;
 
         //     } else if (status === kakao.maps.services.Status.ERROR) {
 
-        //         //alert('ê²ì ê²°ê³¼ ì¤ ì¤ë¥ê° ë°ìíìµëë¤.');
+        //         //alert('검색 결과 중 오류가 발생했습니다.');
         //         return;
 
         //     }
@@ -866,44 +866,44 @@
         //----------------------------------------------------------- --------------------
 
 
-        // ê²ì ê²°ê³¼ ëª©ë¡ê³¼ ë§ì»¤ë¥¼ íì¶íë í¨ììëë¤
+        // 검색 결과 목록과 마커를 표출하는 함수입니다
         // function displayPlaces(places) {
 
 
 
-        //     // ê²ì ê²°ê³¼ - =======================
+        //     // 검색 결과 - =======================
         //     var listEl = document.getElementById('placesList'),
         //         menuEl = document.getElementById('menu_wrap'),
         //         fragment = document.createDocumentFragment(),
         //         bounds = new kakao.maps.LatLngBounds(),
         //         listStr = '';
 
-        //     // ê²ì ê²°ê³¼ ëª©ë¡ì ì¶ê°ë í­ëª©ë¤ì ì ê±°í©ëë¤
+        //     // 검색 결과 목록에 추가된 항목들을 제거합니다
         //     removeAllChildNods(listEl);
 
-        //     // ì§ëì íìëê³  ìë ë§ì»¤ë¥¼ ì ê±°í©ëë¤
+        //     // 지도에 표시되고 있는 마커를 제거합니다
         //     removeMarker();
 
         //     for (var i = 0; i < places.length; i++) {
 
-        //         // ë§ì»¤ë¥¼ ìì±íê³  ì§ëì íìí©ëë¤
+        //         // 마커를 생성하고 지도에 표시합니다
         //         var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
         //             marker = addMarker(placePosition, i),
-        //             itemEl = getListItem(i, places[i]); // ê²ì ê²°ê³¼ í­ëª© Elementë¥¼ ìì±í©ëë¤
+        //             itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
 
-        //         // ê²ìë ì¥ì ìì¹ë¥¼ ê¸°ì¤ì¼ë¡ ì§ë ë²ìë¥¼ ì¬ì¤ì íê¸°ìí´
-        //         // LatLngBounds ê°ì²´ì ì¢íë¥¼ ì¶ê°í©ëë¤
+        //         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+        //         // LatLngBounds 객체에 좌표를 추가합니다
         //         bounds.extend(placePosition);
 
 
         //         fragment.appendChild(itemEl);
         //     }
 
-        //     // ê²ìê²°ê³¼ í­ëª©ë¤ì ê²ìê²°ê³¼ ëª©ë¡ Elementì ì¶ê°í©ëë¤
+        //     // 검색결과 항목들을 검색결과 목록 Element에 추가합니다
         //     listEl.appendChild(fragment);
         //     menuEl.scrollTop = 0;
 
-        //     // ê²ìë ì¥ì ìì¹ë¥¼ ê¸°ì¤ì¼ë¡ ì§ë ë²ìë¥¼ ì¬ì¤ì í©ëë¤
+        //     // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
         //     map.setBounds(bounds);
 
         // }
@@ -913,28 +913,28 @@
 
 
             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        // ë§ì»¤ë¥¼ ìì±íê³  ì§ë ìì ë§ì»¤ë¥¼ íìíë í¨ììëë¤
+        // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
         // function addMarker(position, idx, title) {
-        //     var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // ë§ì»¤ ì´ë¯¸ì§ url, ì¤íë¼ì´í¸ ì´ë¯¸ì§ë¥¼ ìëë¤
-        //         imageSize = new kakao.maps.Size(36, 37),  // ë§ì»¤ ì´ë¯¸ì§ì í¬ê¸°
+        //     var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+        //         imageSize = new kakao.maps.Size(36, 37),  // 마커 이미지의 크기
         //         imgOptions = {
-        //             spriteSize: new kakao.maps.Size(36, 691), // ì¤íë¼ì´í¸ ì´ë¯¸ì§ì í¬ê¸°
-        //             spriteOrigin: new kakao.maps.Point(0, (idx * 46) + 10), // ì¤íë¼ì´í¸ ì´ë¯¸ì§ ì¤ ì¬ì©í  ìì­ì ì¢ìë¨ ì¢í
-        //             offset: new kakao.maps.Point(13, 37) // ë§ì»¤ ì¢íì ì¼ì¹ìí¬ ì´ë¯¸ì§ ë´ììì ì¢í
+        //             spriteSize: new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
+        //             spriteOrigin: new kakao.maps.Point(0, (idx * 46) + 10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+        //             offset: new kakao.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
         //         },
         //         markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
         //         marker = new kakao.maps.Marker({
-        //             position: position, // ë§ì»¤ì ìì¹
+        //             position: position, // 마커의 위치
         //             image: markerImage
         //         });
 
-        //     marker.setMap(map); // ì§ë ìì ë§ì»¤ë¥¼ íì¶í©ëë¤
-        //     markers.push(marker);  // ë°°ì´ì ìì±ë ë§ì»¤ë¥¼ ì¶ê°í©ëë¤
+        //     marker.setMap(map); // 지도 위에 마커를 표출합니다
+        //     markers.push(marker);  // 배열에 생성된 마커를 추가합니다
 
         //     return marker;
         // }
 
-        // ì§ë ìì íìëê³  ìë ë§ì»¤ë¥¼ ëª¨ë ì ê±°í©ëë¤
+        // 지도 위에 표시되고 있는 마커를 모두 제거합니다
         // function removeMarker() {
         //     for (var i = 0; i < markers.length; i++) {
         //         markers[i].setMap(null);
@@ -942,13 +942,13 @@
         //     markers = [];
         // }
 
-        // // ê²ìê²°ê³¼ ëª©ë¡ íë¨ì íì´ì§ë²í¸ë¥¼ íìë í¨ììëë¤
+        // // 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
         // function displayPagination(pagination) {
         //     var paginationEl = document.getElementById('pagination'),
         //         fragment = document.createDocumentFragment(),
         //         i;
 
-        //     // ê¸°ì¡´ì ì¶ê°ë íì´ì§ë²í¸ë¥¼ ì­ì í©ëë¤
+        //     // 기존에 추가된 페이지번호를 삭제합니다
         //     while (paginationEl.hasChildNodes()) {
         //         paginationEl.removeChild(paginationEl.lastChild);
         //     }
@@ -975,8 +975,8 @@
         
 
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        // ê²ìê²°ê³¼ ëª©ë¡ ëë ë§ì»¤ë¥¼ í´ë¦­íì ë í¸ì¶ëë í¨ììëë¤
-        // ì¸í¬ìëì°ì ì¥ìëªì íìí©ëë¤
+        // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
+        // 인포윈도우에 장소명을 표시합니다
         // function displayInfowindow(marker, title) {
         //     var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
 
@@ -987,7 +987,7 @@
 
 
 
-        // ê²ìê²°ê³¼ ëª©ë¡ì ìì Elementë¥¼ ì ê±°íë í¨ììëë¤
+        // 검색결과 목록의 자식 Element를 제거하는 함수입니다
         function removeAllChildNods(el) {
             while (el.hasChildNodes()) {
                 el.removeChild(el.lastChild);
@@ -998,7 +998,7 @@
 
 
 
-        // ì§ëíì ì»¨í¸ë¡¤ì ì§ë ëë ì¤ì¹´ì´ë·° ë²í¼ì í´ë¦­íë©´ í¸ì¶ëì´ ì§ëíìì ë°ê¾¸ë í¨ììëë¤
+        // 지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
         // function setMapType(maptype) {
         //     var roadmapControl = document.getElementById('btnRoadmap');
         //     var skyviewControl = document.getElementById('btnSkyview');
@@ -1013,12 +1013,12 @@
         //     }
         // }
 
-        // // ì§ë íë, ì¶ì ì»¨í¸ë¡¤ìì íë ë²í¼ì ëë¥´ë©´ í¸ì¶ëì´ ì§ëë¥¼ íëíë í¨ììëë¤
+        // // 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
         // function zoomIn() {
         //     map.setLevel(map.getLevel() - 1);
         // }
 
-        // // ì§ë íë, ì¶ì ì»¨í¸ë¡¤ìì ì¶ì ë²í¼ì ëë¥´ë©´ í¸ì¶ëì´ ì§ëë¥¼ íëíë í¨ììëë¤
+        // // 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
         // function zoomOut() {
         //     map.setLevel(map.getLevel() + 1);
         // }
