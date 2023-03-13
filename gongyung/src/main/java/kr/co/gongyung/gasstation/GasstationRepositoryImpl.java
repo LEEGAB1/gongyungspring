@@ -1,6 +1,7 @@
 package kr.co.gongyung.gasstation;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,11 +38,17 @@ public class GasstationRepositoryImpl  implements GasstationRepository{
 	}
 
 	@Override
-	public Map<String, Object> gasStationPrice(String region, String type) { //Integer 으로 에러가 나서 일단 Object 로 바꿈
-		return jdbcTemplate.queryForMap( "SELECT storename, dense_rank() over (order by " + type + " asc) "
-				+ "as ranking FROM gas_station WHERE region = ?" 
+	public Map<String, Integer> gasStationPrice(String region, String type) { //Integer 으로 에러가 나서 일단 Object 로 바꿈
+		Map<String, Object> map = jdbcTemplate.queryForMap( "SELECT storename, dense_rank() over (order by " + type + " asc) "
+				+ "as ranking FROM gas_station WHERE region = ? LIMIT 1" 
 				, region);
+		Map<String, Integer> pricemap = new HashMap<>();
+		for (String key : map.keySet()) {
+			Integer value = Integer.valueOf((String)map.get(key));
+			pricemap.put(key, value);
+		}
 		
+		return pricemap;
 	}
 
 	@Override

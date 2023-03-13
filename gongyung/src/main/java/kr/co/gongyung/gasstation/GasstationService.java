@@ -33,7 +33,7 @@ public class GasstationService  {
 	}
 
 	@Transactional (rollbackFor = RuntimeException.class)
-	public Map<String, Object> gasStationPrice(String region, String type) {
+	public Map<String, Integer> gasStationPrice(String region, String type) {
 		return gasRepo.gasStationPrice(region, type);
 	}
 

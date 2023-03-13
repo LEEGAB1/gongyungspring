@@ -8,7 +8,7 @@ public interface GasstationRepository {
 	List<Gasstation> gasStationSelectByRegion( String region);
 	List<Gasstation> gasStationSelectByRegionAndZone( String region, String zone );
 	List<Gasstation> gasStationSelectByStoreName( String storeName);
-	Map<String, Object> gasStationPrice( String region, String type);
+	Map<String, Integer> gasStationPrice( String region, String type);
 	List<Gasstation> gasStationXY();
 	int gasStationUpdate( Gasstation gasstation, String region);
 	int gasStationInsert( Gasstation gasstation);
