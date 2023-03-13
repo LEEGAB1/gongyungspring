@@ -5,8 +5,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import kr.co.gongyung.gasstation.Gasstation;
-
 @Repository
 public class UserInfoRepositoryImpl implements UserInfoRepository {
 	@Autowired
@@ -14,34 +12,40 @@ public class UserInfoRepositoryImpl implements UserInfoRepository {
 	
 	@Override
 	public int UserInfoSelectId(String id) {
-	int count = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM user_info WHERE id = ?", new Object[]{id}, Integer.class);
-	return count;
+		String sql = "SELECT COUNT(*) FROM user_info WHERE id = ?";
+		return jdbcTemplate.queryForObject(sql, Integer.class, id);
 	 
 	}
 
 	@Override
-	public int UserInfoSelectName(String name) {
-		return 0;
+	public int UserInfoSelectName(String nickname) {
+		String sql = "select count(*) from user_info where nickname = ?";
+		return jdbcTemplate.queryForObject(sql, Integer.class, nickname);
 	}
 
 	@Override
-	public int InsertUserInfo(String id, String pw, String name) {
-		return 0;
+	public int InsertUserInfo(String id, String password, String nickname) {
+		String sql = "insert into user_info (id, password, nickname) " + "values(?, ?, ?)";
+		return jdbcTemplate.queryForObject(sql, Integer.class, id,password,nickname);
 	}
 
 	@Override
-	public UserInfo selectUserInfo(String id, String pw) {
-		return null;
+	public UserInfo selectUserInfo(String id, String password) {
+		String sql = "SELECT * from user_info where id = ? && password = ? ";
+		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<UserInfo>(UserInfo.class), id, password);
 	}
 
 	@Override
 	public int deleteUserInfo(String id) {
-		return 0;
+		String sql = "DELETE FROM user_info WHERE id = ? ";
+		return jdbcTemplate.queryForObject(sql, Integer.class, id);
+		
 	}
 
 	@Override
 	public String selectUserNickName(String id) {
-		return null;
+		String sql = "SELECT nickname FROM user_info WHERE id = ? ";
+		return jdbcTemplate.queryForObject(sql, String.class, id);
 	}
 
 }
