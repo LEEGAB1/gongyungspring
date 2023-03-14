@@ -69,12 +69,10 @@ public class GasstationController {
 		if(region != null && zone == null) {
 			List<Gasstation> list = gasService.gasStationSelectByRegion(region);
 			return list;
-			
 		} else if (region != null && zone != null) {
 			List<Gasstation> list = gasService.gasStationSelectByRegionAndZone(region, zone);
 			return list;
 		}
-		
 		return null;
 	}
 }
