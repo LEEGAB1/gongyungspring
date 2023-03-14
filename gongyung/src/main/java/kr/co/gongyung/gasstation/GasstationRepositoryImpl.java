@@ -8,6 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 
@@ -38,17 +39,11 @@ public class GasstationRepositoryImpl  implements GasstationRepository{
 	}
 
 	@Override
-	public Map<String, Integer> gasStationPrice(String region, String type) { //Integer 으로 에러가 나서 일단 Object 로 바꿈
-		Map<String, Object> map = jdbcTemplate.queryForMap( "SELECT storename, dense_rank() over (order by " + type + " asc) "
-				+ "as ranking FROM gas_station WHERE region = ? LIMIT 1" 
+	public List<GasstationRank> gasStationRank(String region, String type) { //Integer 으로 에러가 나서 일단 Object 로 바꿈
+		return jdbcTemplate.query("SELECT storename, dense_rank() over (order by " + type + " asc) "
+				+ "as ranking FROM gas_station WHERE region = ?"
+				,new BeanPropertyRowMapper<GasstationRank>(GasstationRank.class)
 				, region);
-		Map<String, Integer> pricemap = new HashMap<>();
-		for (String key : map.keySet()) {
-			Integer value = Integer.valueOf((String)map.get(key));
-			pricemap.put(key, value);
-		}
-		
-		return pricemap;
 	}
 
 	@Override
@@ -92,8 +87,10 @@ public class GasstationRepositoryImpl  implements GasstationRepository{
 	}
 
 	@Override
-	public List<Gasstation> oneWeekPrice(String storeName, String type) {
-		return jdbcTemplate.query("SELECT date, " + type +" FROM gas_history where storename = ? ORDER BY date desc limit 7",new BeanPropertyRowMapper<Gasstation>(Gasstation.class),storeName);
+	public List<String> oneWeekPrice(String storeName, String type) {
+		String sql = "SELECT " + type +" FROM gas_history where storename = ? ORDER BY date desc limit 7";
+		RowMapper<String> rowMapper = (rs, rowNum) -> rs.getString(type);
+		return jdbcTemplate.query(sql, rowMapper,storeName);
 	}
 
 }

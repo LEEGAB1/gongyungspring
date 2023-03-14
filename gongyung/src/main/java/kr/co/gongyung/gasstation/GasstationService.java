@@ -33,8 +33,8 @@ public class GasstationService  {
 	}
 
 	@Transactional (rollbackFor = RuntimeException.class)
-	public Map<String, Integer> gasStationPrice(String region, String type) {
-		return gasRepo.gasStationPrice(region, type);
+	public List<GasstationRank> gasStationRank(String region, String type) {
+		return gasRepo.gasStationRank(region, type);
 	}
 
 	@Transactional (rollbackFor = RuntimeException.class)
@@ -58,7 +58,7 @@ public class GasstationService  {
 	}
 
 	@Transactional (rollbackFor = RuntimeException.class)
-	public List<Gasstation> oneWeekPrice(String storeName, String type) {
+	public List<String> oneWeekPrice(String storeName, String type) {
 		return gasRepo.oneWeekPrice(storeName, type);
 	}
 	

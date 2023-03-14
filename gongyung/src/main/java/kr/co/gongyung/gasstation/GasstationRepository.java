@@ -8,11 +8,11 @@ public interface GasstationRepository {
 	List<Gasstation> gasStationSelectByRegion( String region);
 	List<Gasstation> gasStationSelectByRegionAndZone( String region, String zone );
 	List<Gasstation> gasStationSelectByStoreName( String storeName);
-	Map<String, Integer> gasStationPrice( String region, String type);
+	List<GasstationRank> gasStationRank( String region, String type);
 	List<Gasstation> gasStationXY();
 	int gasStationUpdate( Gasstation gasstation, String region);
 	int gasStationInsert( Gasstation gasstation);
 	int gasHistoryInsert();
 
-	List<Gasstation> oneWeekPrice( String storeName, String type);
+	List<String> oneWeekPrice(String storeName, String type);
 }

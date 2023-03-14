@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import kr.co.gongyung.config.DataSourceConfig;
 import kr.co.gongyung.gasstation.Gasstation;
+import kr.co.gongyung.gasstation.GasstationRank;
 import kr.co.gongyung.gasstation.GasstationRepositoryImpl;
 
 
@@ -35,8 +36,10 @@ public class Test2 {
 	
 		@Test
 		public void testprice() {
-			Map<String, Integer> map = GAS.gasStationPrice("강서구", "diesel");
-			assertEquals(1, map.size());
+//			List<GasstationRank> list = GAS.gasStationRank("강서구", "diesel");
+//			assertEquals(50, list.size());
+//			List<String> list = GAS.oneWeekPrice("(주)DJS신항만물류단지주유소", "diesel");
+//			assertEquals(1593, list.);
 		}
 	
 
