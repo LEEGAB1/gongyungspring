@@ -14,6 +14,7 @@ import kr.co.gongyung.config.DataSourceConfig;
 import kr.co.gongyung.gasstation.GasstationRepositoryImpl;
 import kr.co.gongyung.user.UserInfo;
 import kr.co.gongyung.user.UserInfoRepositoryImpl;
+import kr.co.gongyung.user.UserInfoService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { DataSourceConfig.class})
@@ -25,11 +26,16 @@ public class userinfoTest {
 	@Autowired
 	private GasstationRepositoryImpl GAS; 
 	
+	@Autowired
+	private UserInfoService service;
+	
 
 	@Test
 	public void testConnction() {
-		String result = USER.selectUserNickName("jinju123");
-		assertEquals(result, "진주");
+		int result = service.UserInfoCreate("jinju4567", "jinju4567", "진주주주주");
+		assertEquals(result, 1);
+//		int result = USER.InsertUserInfo("jinju456", "jinju456", "진주주주");
+//		assertEquals(result, 1);
 //		int result = USER.UserInfoSelectId("jinju123");
 //		assertEquals(result, 1);
 		

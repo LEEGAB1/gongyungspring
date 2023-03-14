@@ -11,32 +11,32 @@ public class UserInfoService {
 	private UserInfoRepository repository;
 	
 	@Transactional(rollbackFor = RuntimeException.class)
-	public int UserInfoSelectId(String id) {
+	public int UserInfoIdCheck(String id) {
 		return repository.UserInfoSelectId(id);
 	}
 	
 	@Transactional(rollbackFor = RuntimeException.class)
-	public int UserInfoSelectName(String nickname) {
+	public int UserInfoNameCheck(String nickname) {
 		return repository.UserInfoSelectName(nickname);
 	}
 	
 	@Transactional(rollbackFor = RuntimeException.class)
-	public int InsertUserInfo(String id, String password, String nickname) {
+	public int UserInfoCreate(String id, String password, String nickname) {
 		return repository.InsertUserInfo(id, password, nickname);
 	}
 	
 	@Transactional(rollbackFor = RuntimeException.class)
-	public UserInfo selectUserInfo(String id, String password) {
+	public UserInfo UserInfoRead(String id, String password) {
 		return repository.selectUserInfo(id, password);
 	}
 	
 	@Transactional(rollbackFor = RuntimeException.class)
-	public int deleteUserInfo(String id) {
+	public int UserInfoDelete(String id) {
 		return repository.deleteUserInfo(id);
 	}
 	
 	@Transactional(rollbackFor = RuntimeException.class)
-	public String selectUserNickName(String id) {
+	public String UserInfoNickName(String id) {
 		return repository.selectUserNickName(id);
 	}
 }

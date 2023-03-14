@@ -25,8 +25,8 @@ public class UserInfoRepositoryImpl implements UserInfoRepository {
 
 	@Override
 	public int InsertUserInfo(String id, String password, String nickname) {
-		String sql = "insert into user_info (id, password, nickname) " + "values(?, ?, ?)";
-		return jdbcTemplate.queryForObject(sql, Integer.class, id,password,nickname);
+		String sql = "insert into user_info (id, password, nickname) values(?, ?, ?)";
+		return jdbcTemplate.update(sql, id,password,nickname);
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class UserInfoRepositoryImpl implements UserInfoRepository {
 	@Override
 	public int deleteUserInfo(String id) {
 		String sql = "DELETE FROM user_info WHERE id = ? ";
-		return jdbcTemplate.queryForObject(sql, Integer.class, id);
+		return jdbcTemplate.update(sql, id);
 		
 	}
 

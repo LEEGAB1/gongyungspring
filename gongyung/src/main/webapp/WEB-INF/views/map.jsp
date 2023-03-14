@@ -18,6 +18,7 @@
     <script src="./resources/js/selectgudong.js"></script>
     <script src="./resources/js/marker.js"></script>
     <script src="./resources/js/sidebarmarker.js"></script>
+    
 </head>
 
 <body>
@@ -347,7 +348,7 @@
                         });
         
                         loginbtn.addEventListener("click", (e)=> {
-                            window.location.href = "./join.html";
+                            window.location.href = "./resources/html/join.html";
                         })
 
 
