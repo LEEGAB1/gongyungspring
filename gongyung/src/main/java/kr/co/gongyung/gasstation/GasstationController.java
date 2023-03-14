@@ -17,6 +17,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import kr.co.gongyung.gasstation.model.Gasstation;
+import kr.co.gongyung.gasstation.model.GasstationPriceInfo;
+import kr.co.gongyung.gasstation.model.GasstationRank;
+
 @Controller
 @RequestMapping("/gogo/gasstation")
 @ResponseBody

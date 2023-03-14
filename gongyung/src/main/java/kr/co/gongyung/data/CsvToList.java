@@ -15,9 +15,9 @@ import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema.ColumnType;
 
-import kr.co.gongyung.gasstation.Gasstation;
 import kr.co.gongyung.gasstation.GasstationRepository;
 import kr.co.gongyung.gasstation.GasstationRepositoryImpl;
+import kr.co.gongyung.gasstation.model.Gasstation;
 
 
 public class CsvToList {

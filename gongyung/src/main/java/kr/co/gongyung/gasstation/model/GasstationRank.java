@@ -1,4 +1,4 @@
-package kr.co.gongyung.gasstation;
+package kr.co.gongyung.gasstation.model;
 
 public class GasstationRank {
 	private String storename;

@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import kr.co.gongyung.gasstation.model.Gasstation;
+import kr.co.gongyung.gasstation.model.GasstationRank;
+
 @Service
 public class GasstationService  {
 	@Autowired

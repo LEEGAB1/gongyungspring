@@ -11,6 +11,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import kr.co.gongyung.gasstation.model.Gasstation;
+import kr.co.gongyung.gasstation.model.GasstationRank;
+
 
 
 @Repository

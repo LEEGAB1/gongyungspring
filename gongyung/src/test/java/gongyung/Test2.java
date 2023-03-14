@@ -14,9 +14,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import kr.co.gongyung.config.DataSourceConfig;
-import kr.co.gongyung.gasstation.Gasstation;
-import kr.co.gongyung.gasstation.GasstationRank;
 import kr.co.gongyung.gasstation.GasstationRepositoryImpl;
+import kr.co.gongyung.gasstation.model.Gasstation;
+import kr.co.gongyung.gasstation.model.GasstationRank;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)

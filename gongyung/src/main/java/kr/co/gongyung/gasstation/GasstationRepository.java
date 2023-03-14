@@ -3,6 +3,9 @@ package kr.co.gongyung.gasstation;
 import java.util.List;
 import java.util.Map;
 
+import kr.co.gongyung.gasstation.model.Gasstation;
+import kr.co.gongyung.gasstation.model.GasstationRank;
+
 public interface GasstationRepository {
 	List<Gasstation> gasStationSelect();
 	List<Gasstation> gasStationSelectByRegion( String region);
