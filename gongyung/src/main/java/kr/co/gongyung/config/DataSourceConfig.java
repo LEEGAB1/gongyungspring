@@ -36,26 +36,4 @@ public class DataSourceConfig {
 		
 	} 
 	
-	
-
-	@Bean
-	public void cros() {
-	CorsConfiguration config = new CorsConfiguration();
-
-	// Possibly...
-	// config.applyPermitDefaultValues()
-
-	config.setAllowCredentials(true);
-	//https://domain1.com
-	config.addAllowedOrigin("http://localhost:8080");
-	config.addAllowedHeader("*");
-	config.addAllowedMethod("*");
-
-	UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-	source.registerCorsConfiguration("/**", config);
-
-	CorsFilter filter = new CorsFilter(source);
-	}
-	
-
 }

@@ -15,7 +15,7 @@ window.onload = function () {
         const regionform = new FormData(region);
         regionform.append("guSelect", guSelect.value);
         regionform.append("dongSelect", dongSelect.value);
-        fetch("http://localhost:8080/gonggongyung/gogo/gasstation", {
+        fetch("gonggongyung/gasstation/", {
             method: "POST",
             body: new URLSearchParams([...regionform.entries()]), // post body형식
             headers: {
