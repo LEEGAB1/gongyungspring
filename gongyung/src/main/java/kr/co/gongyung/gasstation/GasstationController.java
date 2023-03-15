@@ -46,6 +46,7 @@ public class GasstationController {
 	public GasstationPriceInfo readGasstation(@RequestParam(name = "name") String storeName, @RequestParam(name = "type") String type) throws JsonProcessingException {
 		List<Gasstation> gaslist = gasService.gasStationSelectByStoreName(storeName);
 		GasstationPriceInfo priceinfo = new GasstationPriceInfo();
+		logger.info(storeName);
 		
 		priceinfo.setStorename(storeName);
 		priceinfo.setDieselprice(gaslist.get(0).getDiesel());
