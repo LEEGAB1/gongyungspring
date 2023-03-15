@@ -541,7 +541,7 @@ body {
     width: 6px;
   }
 .sidebar::-webkit-scrollbar-thumb {
-    background-color: #c4c4c4;
+    background-color: #325573;
     border-radius: 10px;
   }
 .sidebar::-webkit-scrollbar-track {
@@ -636,8 +636,8 @@ body {
 }
 
 .logo {
-    width: 150px;
-    height: 150px;
+    width: 85px;
+    height: 85px;
     /* margin-right: 12px; */
     /* margin-bottom: 10px; */
 }
@@ -762,7 +762,7 @@ body {
 }
 
 .busan {
-    position: absolute;
+    /*position: absolute;*/
     top: 110px;
     /* left: 60px; */
     font-size: 20px;
