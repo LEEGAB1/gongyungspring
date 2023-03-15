@@ -12,7 +12,7 @@ function toggleSidebar(index) {
     let storename = namebtn.innerText;
     
     if(name){
-        fetch("http://localhost:8080/gonggongyung/gogo/gasstation?type=diesel&name=" + storename)
+        fetch("gonggongyung/gasstation/price?type=diesel&name=" + storename)
         .then((resp) => resp.json())
         .then((obj) => {
             gasRegion.innerText = obj.region;
