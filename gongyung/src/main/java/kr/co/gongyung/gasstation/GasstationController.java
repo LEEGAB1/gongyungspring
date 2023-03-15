@@ -22,7 +22,7 @@ import kr.co.gongyung.gasstation.model.GasstationPriceInfo;
 import kr.co.gongyung.gasstation.model.GasstationRank;
 
 @Controller
-@RequestMapping("/gogo/gasstation")
+@RequestMapping("/gonggongyung/gasstation/")
 @ResponseBody
 public class GasstationController {
 	private static final Logger logger = LoggerFactory.getLogger(GasstationController.class);
