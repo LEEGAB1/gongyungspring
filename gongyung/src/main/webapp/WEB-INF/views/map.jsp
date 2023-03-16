@@ -278,7 +278,7 @@
                         const listform = new FormData(reviewList);
                         listform.append("storename", storename.innerText);
 
-                        fetch("http://localhost:8080/gonggongyung/gogo/review", {
+                        fetch("gonggongyung/review", {
                             method: "POST",
                             body: new URLSearchParams([...listform.entries()]), // post body형식
                             headers: {

@@ -13,7 +13,7 @@ function setOilType(oiltype) {
         dieselControl.className = 'selected_btn';
         gasolineControl.className = 'btn';
 
-        fetch("http://localhost:8080/gonggongyung/gogo/gasstation?type=diesel&name=" + storename)
+        fetch("gonggongyung/gasstation/price?type=diesel&name=" + storename)
             .then((resp) => resp.json())
             .then((obj) => {
                 gasRegion.innerText = obj.region;
@@ -33,7 +33,7 @@ function setOilType(oiltype) {
         gasolineControl.className = 'selected_btn';
         dieselControl.className = 'btn';
 
-        fetch("http://localhost:8080/gonggongyung/gogo/gasstation?type=gasoline&name=" + storename)
+        fetch("gonggongyung/gasstation/price??type=gasoline&name=" + storename)
             .then((resp) => resp.json())
             .then((obj) => {
                 gasRegion.innerText = obj.region;
