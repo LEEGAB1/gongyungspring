@@ -4,7 +4,9 @@
 function asd() {
     let storeMenu = document.getElementsByClassName("storeMenus");
 
+
     fetch("gonggongyung/gasstation/XY", { // 누르면 가라asd
+
     }).then((response) => response.json())
         .then((data) => {
            
