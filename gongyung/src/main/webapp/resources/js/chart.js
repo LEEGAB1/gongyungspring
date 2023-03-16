@@ -5,7 +5,7 @@ function showchart() {
     const ctx = document.getElementById('myChart');
     let storename = namebtn.innerText;
     
-    fetch("http://192.168.0.103:8080/gonggongyung/gogo/gasstation?type=diesel&name=" + storename)
+    fetch("gonggongyung/gasstation/price?type=diesel&name=" + storename)
     .then((resp) => resp.json())
     .then((obj) => {
         let oneweekprice = [];
