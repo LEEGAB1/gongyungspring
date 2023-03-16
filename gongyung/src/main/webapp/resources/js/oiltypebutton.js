@@ -33,7 +33,7 @@ function setOilType(oiltype) {
         gasolineControl.className = 'selected_btn';
         dieselControl.className = 'btn';
 
-        fetch("gonggongyung/gasstation/price??type=gasoline&name=" + storename)
+        fetch("gonggongyung/gasstation/price?type=gasoline&name=" + storename)
             .then((resp) => resp.json())
             .then((obj) => {
                 gasRegion.innerText = obj.region;
@@ -49,6 +49,6 @@ function setOilType(oiltype) {
         todayGasoline.innerText = "~";
         }
     }
-    \
+   
     
     
