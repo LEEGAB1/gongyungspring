@@ -30,4 +30,24 @@ public class UserInfoController {
 		return userService.UserInfoIdCheck(id);
 	}
 
+	@GetMapping(value = "/namecheck", produces = "application/json")
+	public int nameCheck(@RequestParam(name = "inputName") String nickname) {
+		return userService.UserInfoNameCheck(nickname);
+	}
+	
+	@GetMapping(value = "/read", produces = "application/json")
+	public UserInfo read(@RequestParam(name = "inputId") String id
+						, @RequestParam(name = "inputPw") String password) {
+		return userService.UserInfoRead(id, password);
+	}
+	
+	@GetMapping(value = "/delete", produces = "application/json")
+	public int delete(@RequestParam(name = "inputId") String id) {
+		int userId = userService.UserInfoIdCheck(id);
+		if (userId != 0) {
+			userService.UserInfoDelete(id);
+			return 1;
+		}
+		return 0;
+	}
 }
