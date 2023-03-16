@@ -49,10 +49,6 @@ function setOilType(oiltype) {
         todayGasoline.innerText = "~";
         }
     }
-<<<<<<< HEAD
-   
-=======
-    
->>>>>>> branch 'master' of https://github.com/LEEGAB1/gongyungspring.git
+
     
     
