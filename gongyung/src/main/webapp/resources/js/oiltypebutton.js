@@ -8,7 +8,7 @@ function setOilType(oiltype) {
     var dieselControl = document.getElementById('btnDiesel');
     var gasolineControl = document.getElementById('btnGasoline');
     
-    if (oiltype === 'diesel') {
+    if (oiltype.equals("diesel")) {
         // map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);
         dieselControl.className = 'selected_btn';
         gasolineControl.className = 'btn';
@@ -49,3 +49,6 @@ function setOilType(oiltype) {
         todayGasoline.innerText = "~";
         }
     }
+    \
+    
+    
