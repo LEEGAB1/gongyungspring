@@ -1,7 +1,7 @@
 function asd() {
     let storeMenu = document.getElementsByClassName("storeMenus");
 
-    fetch("http://localhost:8080/gonggongyung/gogo/gasstation/", { // 누르면 가라
+    fetch("http://localhost:8080/gonggongyung/gogo/gasstation/xy", { // 누르면 가라
     }).then((response) => response.json())
         .then((data) => {
            
