@@ -16,18 +16,30 @@ public class UserInfoController {
 	@Autowired
 	private UserInfoService userService;
 	
-	@GetMapping(value = "/create", produces = "application/json")
-	public int create(@RequestParam(name = "inputId") String id
-					, @RequestParam(name = "inputPw") String password
-					, @RequestParam(name = "nickName") String nickname) {
-		int userId = userService.UserInfoCreate(id, password, nickname);
-		
-		return userId;
-	}
-	
-	@GetMapping(value = "/idcheck", produces = "application/json")
-	public int idCheck(@RequestParam(name = "inputId") String id) {
-		return userService.UserInfoIdCheck(id);
+	@PostMapping(value = "/login", consumes = "application/x-www-form-urlencoded")
+	public UserInfo login(@RequestParam(name = "inputId") String id
+					,@RequestParam(name = "inputPw") String pw) {
+		UserInfo user = new UserInfo();
+		if(userService.UserInfoRead(id, pw) != null) {
+			user = userService.UserInfoRead(id, pw);
+		}
+		return user;
 	}
 
-}
+	@PostMapping(value = "/create", consumes = "application/x-www-form-urlencoded")
+	public String create(@RequestParam(name = "inputId") String id
+					, @RequestParam(name = "inputPw") String pw
+					, @RequestParam(name = "nickName") String nickname) {
+	
+					int okId = userService.UserInfoIdCheck(id);
+					int okNickname = userService.UserInfoNameCheck(nickname);
+					if(okId == 0 && okNickname == 0) {
+						userService.UserInfoCreate(id, pw, nickname);
+						return "성공";
+					}
+				
+					return "{\"inputId\":" + okId + ",\"inputName\":" + okNickname + "}";	
+				
+				}
+			}
+

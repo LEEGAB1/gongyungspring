@@ -4,11 +4,17 @@ function setOilType(oiltype) {
     let gasRegion = document.getElementById("gasRegion");
     let priceNum = document.getElementById("priceNum");
     let storename = namebtn.innerText;
-
+    let oilname = oiltype.innerText;
+    
     var dieselControl = document.getElementById('btnDiesel');
     var gasolineControl = document.getElementById('btnGasoline');
     
-    if (oiltype.equals("diesel")) {
+    console.log(oiltype === 'dieselname');
+    console.log(oiltype == 'dieselname');
+    console.log(oiltype);
+    console.log(oilname);
+    
+    if (oiltype === 'dieselname') {
         // map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);
         dieselControl.className = 'selected_btn';
         gasolineControl.className = 'btn';
