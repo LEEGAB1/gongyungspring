@@ -49,6 +49,6 @@ function setOilType(oiltype) {
         todayGasoline.innerText = "~";
         }
     }
-    \
+    
     
     
