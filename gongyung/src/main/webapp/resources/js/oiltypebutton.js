@@ -8,9 +8,6 @@ function setOilType(oiltype) {
     var dieselControl = document.getElementById('btnDiesel');
     var gasolineControl = document.getElementById('btnGasoline');
     
-    console.log(oiltype === 'dieselbtn');
-    console.log(oiltype);
-    
     if (oiltype === 'dieselbtn') {
         // map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);
         dieselControl.className = 'selected_btn';
