@@ -141,8 +141,8 @@
                             <hr>
                             <div class="oil" >
                                 <div class="oilType radius_border">
-                                    <span id="btnDiesel" class="selected_btn" onclick="setOilType('dieselname')">경유</span>
-                                    <span id="btnGasoline" class="btn" onclick="setOilType('gasoline')">휘발유</span>
+                                    <span id="btnDiesel" class="selected_btn" onclick="setOilType('dieselbtn')">경유</span>
+                                    <span id="btnGasoline" class="btn" onclick="setOilType('gasolinebtn')">휘발유</span>
                                 </div>
                                     <p style="font-size: large;text-align : center; "> <span id="gasRegion">동구</span>에서 <span id="priceNum">3</span>번째로 싼집!</p>
                                     <p style="color: #160d69; font-weight: bold; text-align: center; font-size: 20px;"> 오늘의 유가 정보 </p>

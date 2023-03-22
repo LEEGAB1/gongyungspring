@@ -4,17 +4,11 @@ function setOilType(oiltype) {
     let gasRegion = document.getElementById("gasRegion");
     let priceNum = document.getElementById("priceNum");
     let storename = namebtn.innerText;
-    let oilname = oiltype.innerText;
     
     var dieselControl = document.getElementById('btnDiesel');
     var gasolineControl = document.getElementById('btnGasoline');
     
-    console.log(oiltype === 'dieselname');
-    console.log(oiltype == 'dieselname');
-    console.log(oiltype);
-    console.log(oilname);
-    
-    if (oiltype === 'dieselname') {
+    if (oiltype === 'dieselbtn') {
         // map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);
         dieselControl.className = 'selected_btn';
         gasolineControl.className = 'btn';
@@ -23,7 +17,7 @@ function setOilType(oiltype) {
             .then((resp) => resp.json())
             .then((obj) => {
                 gasRegion.innerText = obj.region;
-                priceNum.innerText = obj.pricenum;
+                priceNum.innerText = obj.ranking;
                 todayDiesel.innerText = obj.dieselprice + "원";
                 todayGasoline.innerText = obj.gasolineprice + "원";
             })
@@ -43,7 +37,7 @@ function setOilType(oiltype) {
             .then((resp) => resp.json())
             .then((obj) => {
                 gasRegion.innerText = obj.region;
-                priceNum.innerText = obj.pricenum;
+                priceNum.innerText = obj.ranking;
                 todayDiesel.innerText = obj.dieselprice + "원";
                 todayGasoline.innerText = obj.gasolineprice + "원";
             })

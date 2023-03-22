@@ -60,10 +60,7 @@ public class GasstationController {
 		}
 		
 		List<String> oneweekprice = gasService.oneWeekPrice(storeName, type);
-		ObjectMapper mapper = new ObjectMapper();
-		String pricelistjson = mapper.writeValueAsString(oneweekprice);
-
-		priceinfo.setOneweek(pricelistjson);
+		priceinfo.setOneweek(oneweekprice);
 
 		return priceinfo;
 	}

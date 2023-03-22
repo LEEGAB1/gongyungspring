@@ -16,7 +16,7 @@ function toggleSidebar(index) {
         .then((resp) => resp.json())
         .then((obj) => {
             gasRegion.innerText = obj.region;
-            priceNum.innerText = obj.pricenum;
+            priceNum.innerText = obj.ranking;
             todayDiesel.innerText = obj.dieselprice + "원";
             todayGasoline.innerText = obj.gasolineprice + "원";
             })
