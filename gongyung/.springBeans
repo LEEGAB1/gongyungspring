@@ -7,6 +7,12 @@
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
+		<config>src/main/webapp/WEB-INF/spring/root-context.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</config>
+		<config>java:kr.co.gongyung.data.CsvToList</config>
+		<config>java:kr.co.gongyung.config.DataSourceConfig</config>
+		<config>java:kr.co.gongyung.data.Downloding</config>
+		<config>java:kr.co.gongyung.data.ExcelToCsv</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

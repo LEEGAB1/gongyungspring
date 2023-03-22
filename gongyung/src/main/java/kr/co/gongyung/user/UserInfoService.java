@@ -10,7 +10,7 @@ public class UserInfoService {
 	@Autowired
 	private UserInfoRepository repository;
 	
-	@Transactional(rollbackFor = RuntimeException.class)
+	@Transactional
 	public int UserInfoIdCheck(String id) {
 		return repository.UserInfoSelectId(id);
 	}

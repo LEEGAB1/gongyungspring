@@ -15,7 +15,6 @@ import org.springframework.web.filter.CorsFilter;
 
 
 @Configuration // 설정을 위한 클래스입니다를 알려준다.
-@ComponentScan("kr.co.gongyung") 
 public class DataSourceConfig {
 	@Bean // 생성한 객체 빈으로 등록!
 	public DataSource dataSource() {
